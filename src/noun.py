@@ -1,7 +1,7 @@
-class Noun():
+class NounCard():
     def __init__(self, article, noun):
         self.article = article
         self.noun = noun
-        self.n_seen = 0
-        self.n_correct = 0
+        self.date_last_correct = None
+        self.n_correct_row = None
         
