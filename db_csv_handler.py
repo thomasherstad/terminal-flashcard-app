@@ -3,8 +3,18 @@ from src.noun import Noun
 
 PATH = 'noun_list.csv'
 
+# [noun, article, plural, translation, date last correct, correct streak]
+def csv_to_noun(noun_list):
+    noun = Noun(noun_list[0])
+    noun.article = noun_list[1]
+    noun.plural = noun_list[2]
+    noun.translation = noun_list[3]
+    noun.date_last_correct = noun_list[4]
+    noun.correct_streak = noun_list[5]
+    return noun
+
 def print_all_nouns():
-    with open(PATH) as file:
+    with open(PATH, 'r') as file:
         csv_reader = csv.reader(file, delimiter=';')
         line_number = 0
         for line in csv_reader:
@@ -14,8 +24,7 @@ def print_all_nouns():
             else:
                 line_number += 1
 
-#Could implement a better searching algo if it's for sure sorted
-#Returns an empty list when no matches. Should I change to none?
+# Could implement a better searching algo if it's for sure sorted
 def find_noun_in_csv(word):
     word = word.lower().capitalize()
     matching_nouns = []
@@ -27,12 +36,7 @@ def find_noun_in_csv(word):
                 line_count += 1
             elif row[0] == word:
                 #Potential for problem when changing csv table size
-                noun = Noun(row[0])
-                noun.article = row[1]
-                noun.plural = row[2]
-                noun.translation = row[3]
-                noun.date_last_correct = row[4]
-                noun.correct_streak = row[5]
+                noun = csv_to_noun(row)
                 matching_nouns.append(noun)
             else:
                 line_count +=1
@@ -40,7 +44,7 @@ def find_noun_in_csv(word):
             return None
     return matching_nouns
 
-#matching_nouns is a list of Noun objects
+# matching_nouns is a list of Noun objects
 def display_found_nouns(matching_nouns):
     amount = len(matching_nouns)
     if amount == None:
@@ -61,18 +65,23 @@ def create_noun_user():
     noun.get_translation_from_user()
     return noun
 
-
-def append_noun_to_list(noun_tuple):
-    with open(PATH) as file:
+def append_noun_to_csv(noun):
+    with open(PATH, 'a') as file:
         csv_writer = csv.writer(file, delimiter=';')
+        csv_writer.writerow(noun.to_list_format())
+
+# TODO: Expand on this one, it seems like it could work to fix the bug
+def correct_csv_empty_rows():
+    with open(PATH, 'r') as file:
+        csv_reader = file.readlines()[-1][-1]
+        (csv_reader == '\n')
 
 
 def check_if_noun_should_be_added(noun):
     if find_noun_in_csv(noun) is None:
         pass
 
-
-
 if __name__ == '__main__':
     results = find_noun_in_csv('see')
-    display_found_nouns(results)
+    noun = results[0]
+    append_noun_to_csv(noun)

@@ -23,3 +23,5 @@
     - Sort csv file
 
 
+## Bugs
+- If there are more than one empty lines at the end the list is out if range when reading

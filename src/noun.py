@@ -4,8 +4,8 @@ class Noun():
         self.noun = noun
         self.plural = plural
         self.translation = translation
-        self.date_last_correct = ''
-        self.correct_streak = 0
+        self.date_last_correct = None
+        self.correct_streak = ''
     
     def __repr__(self):
         if self.translation and self.plural and self.article:
@@ -14,8 +14,9 @@ class Noun():
             return f'{self.article} {self.noun}, Die {self.plural}'
         else:
             return f'{self.article} {self.noun}'
-            
 
+    # overload __eq__(self) to be able to compare two nouns
+    
     def get_article_from_user(self):
         articles = ['Der', 'Die', 'Das']
         while True:
@@ -30,5 +31,10 @@ class Noun():
 
     def get_translation_from_user(self):
         self.translation = input(f'What does {self.noun} mean?\n')
-        
-        
+    
+    def to_csv_format(self):
+        return f'{self.noun};{self.article};{self.plural};{self.translation};{self.date_last_correct};{self.correct_streak}'
+    
+    #TODO: There is probably a way to override something so I can use list(noun)
+    def to_list_format(self):
+        return [self.noun, self.article, self.plural, self.translation, self.date_last_correct, self.correct_streak]
