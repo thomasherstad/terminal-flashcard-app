@@ -46,18 +46,10 @@ def read_csvfile_to_list() -> list[list]:
             line_number += 1
     return data
 
-def write_list_to_csvfile(sorted_list: list):
+def write_list_to_csvfile(data: list):
     with open(PATH, 'w', newline='') as file:
         csv_writer = csv.writer(file, delimiter=';')
-        csv_writer.writerows(sorted_list)
-
-def sort_csv_list(data_list: list) -> list:
-    # Removes header, sorts, then inserts header
-    if data_list[0] == CSV_HEADER: 
-        data_list.pop(0)
-    data_list.sort()
-    data_list.insert(0, CSV_HEADER)
-    return data_list
+        csv_writer.writerows(data)
 
 def remove_duplicates(data: list) -> list:
     popped = []
@@ -66,29 +58,6 @@ def remove_duplicates(data: list) -> list:
         if item not in data:
             popped.append(item)
     return popped + data
-
-
-def add_noun_to_csv(noun_object: Noun):
-    data = read_csvfile_to_list()
-    noun_list = noun_object.to_list_format()
-    print(noun_list)
-    print(data[2])
-    print(f'Checking if it\'s in the list: {noun_list in data}')
-    if noun_list in data:
-        print('The noun is already in the list. Returning.')
-        return
-    data.append(noun_list)
-    data = sort_csv_list(data)
-    write_list_to_csvfile(data)
-
-#Does not handle duplicates
-def remove_noun_from_csv(noun_object: Noun):
-    data = read_csvfile_to_list()
-    noun_list = noun_object.to_list_format()
-    for item in data:
-        if item == noun_list:
-            data.remove(item)
-    write_list_to_csvfile(data)
 
 if __name__ == '__main__':
     data = read_csvfile_to_list()

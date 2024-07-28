@@ -45,6 +45,11 @@ class NounList:
         if self.in_list(noun):
             self.noun_list.remove(noun)
 
+    def export_to_csv(self):
+        data = []
+        for noun in self.noun_list:
+            data.append(noun.to_list_format())
+        write_list_to_csvfile(data)
 
 if __name__ == '__main__':
     nouns = NounList()
@@ -59,3 +64,4 @@ if __name__ == '__main__':
     nouns.add_noun(noun)
     print('---------------------------------')
     print(nouns)
+    nouns.export_to_csv()
