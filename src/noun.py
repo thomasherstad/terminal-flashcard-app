@@ -7,13 +7,16 @@ class Noun():
         self.date_last_correct = ''
         self.correct_streak = 0
     
-    def __repr__(self):
+    def __str__(self):
         if self.translation and self.plural and self.article:
             return f'{self.article} {self.noun}, Die {self.plural} ({self.translation})'
         elif self.plural and self.article:
             return f'{self.article} {self.noun}, Die {self.plural}'
         else:
             return f'{self.article} {self.noun}'
+
+    def __repr__(self):
+        return str(self)
 
     # overload __eq__(self) to be able to compare two nouns
     

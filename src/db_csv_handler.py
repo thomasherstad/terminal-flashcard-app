@@ -65,7 +65,7 @@ def create_noun_user() -> Noun:
     return noun
 
 #TODO: Remove header on input (it is added back in the write function)
-def read_csvfile_to_list() -> list:
+def read_csvfile_to_list() -> list[list]:
     data = []
     with open(PATH, 'r') as file:
         csv_reader = csv.reader(file, delimiter=';')
