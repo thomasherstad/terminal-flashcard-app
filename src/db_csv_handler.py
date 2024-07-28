@@ -65,12 +65,15 @@ def create_noun_user() -> Noun:
     return noun
 
 #TODO: Remove header on input (it is added back in the write function)
-def read_csvfile_to_list():
+def read_csvfile_to_list() -> list:
     data = []
     with open(PATH, 'r') as file:
         csv_reader = csv.reader(file, delimiter=';')
+        line_number = 0
         for row in csv_reader:
-            data.append(row)
+            if line_number != 0:
+                data.append(row)
+            line_number += 1
     return data
 
 def write_list_to_csvfile(sorted_list: list):
@@ -118,5 +121,6 @@ def remove_noun_from_csv(noun_object: Noun):
     write_list_to_csvfile(data)
 
 if __name__ == '__main__':
-    noun = Noun('Kraft', 'Die', 'Kräfte', 'Force')
-    remove_noun_from_csv(noun)
+    data = read_csvfile_to_list()
+    for n in data:
+        print(n)
