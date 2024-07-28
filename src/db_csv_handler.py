@@ -14,35 +14,6 @@ def list_to_noun(noun_list: list) -> Noun:
     noun.correct_streak = noun_list[5]
     return noun
 
-def print_all_nouns():
-    with open(PATH, 'r') as file:
-        csv_reader = csv.reader(file, delimiter=';')
-        line_number = 0
-        for line in csv_reader:
-            if line_number != 0:
-                print(f'{line[1]} {line[0]}')
-                line_number += 1
-            else:
-                line_number += 1
-
-# Could implement a better searching algo
-def find_noun_in_csv(word: str) -> list:
-    word = word.lower().capitalize()
-    matching_nouns = []
-    with open(PATH) as file:
-        csv_reader = csv.reader(file, delimiter=';')
-        line_count = 0
-        for row in csv_reader:
-            if line_count == 0:
-                line_count += 1
-            elif row[0] == word:
-                #Potential for problem when changing csv table size
-                noun_object = list_to_noun(row)
-                matching_nouns.append(noun_object)
-            else:
-                line_count +=1
-    return matching_nouns
-
 # matching_nouns is a list of Noun objects
 def display_found_nouns(matching_nouns):
     amount = len(matching_nouns)
@@ -64,7 +35,6 @@ def create_noun_user() -> Noun:
     noun.get_translation_from_user()
     return noun
 
-#TODO: Remove header on input (it is added back in the write function)
 def read_csvfile_to_list() -> list[list]:
     data = []
     with open(PATH, 'r') as file:

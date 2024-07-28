@@ -18,8 +18,15 @@ class Noun():
     def __repr__(self):
         return str(self)
 
-    # overload __eq__(self) to be able to compare two nouns
+    # Is this needed?
+    def __eq__(self, other):
+        if self.article == other.article and self.noun == other.noun and self.plural == other.plural and self.translation == other.translation:
+            return True
+        return False
     
+    def __lt__(self, other):
+        return self.noun < other.noun
+
     def get_article_from_user(self):
         articles = ['Der', 'Die', 'Das']
         while True:
