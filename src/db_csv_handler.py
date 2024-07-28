@@ -47,6 +47,7 @@ def read_csvfile_to_list() -> list[list]:
     return data
 
 def write_list_to_csvfile(data: list):
+    data.insert(0, CSV_HEADER)
     with open(PATH, 'w', newline='') as file:
         csv_writer = csv.writer(file, delimiter=';')
         csv_writer.writerows(data)
