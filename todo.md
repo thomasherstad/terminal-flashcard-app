@@ -1,6 +1,4 @@
 ## Focus
-- Create add-function
-    - Needs to check if it's already in the list
 
 ## Title screen logic
 - A title screen asking what you want to do:
@@ -15,13 +13,13 @@
 
 ## Database csv
 - Create the edit-function
-    - Edit word, definite article, plural
-    - Delete noun
-- Sorting algorithm
-    - Check if sorted
-        - Der -> Die -> Das
-    - Sort csv file
-
+    - Edit word, definite article, plural, translation
+- Write tests for read and write
 
 ## Bugs
-- If there are more than one empty lines at the end the list is out if range when reading
+
+
+## For later
+- Refactor db_csv_handler.py to only be reading and writing to csv, and move all list handling to another module or class
+- Sorting improvement: If we have the same noun with different articles, sort Der->Die->Das
+- 
