@@ -1,5 +1,6 @@
 ## Focus
 
+
 ## Title screen logic
 - A title screen asking what you want to do:
     - Play
@@ -11,15 +12,27 @@
         - Also delete
     - Close program
 
-## Database csv
+## Database csv 
 - Create the edit-function
     - Edit word, definite article, plural, translation
 - Write tests for read and write
 
+## NounList class
+- Create tests
+- Have populate from list function use a loop to make it work when changing csv format
+- Function to remove duplicates
+
+## Noun class
+- Implement time/date
+
 ## Bugs
 
+## Finished
+- Graphic for terminal view, nice card
+- Implement algorithm for choosing which card to show. Spaced repetition
 
-## For later
-- Refactor db_csv_handler.py to only be reading and writing to csv, and move all list handling to another module or class
+## For Later
 - Sorting improvement: If we have the same noun with different articles, sort Der->Die->Das
-- 
+- Implement ability to have multiple decks
+
+## Done since last commit
