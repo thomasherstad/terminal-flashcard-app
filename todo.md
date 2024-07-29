@@ -1,7 +1,8 @@
 ## Focus
-
+- NounList: Have populate_from_list function use a loop to make it work when changing csv format
 
 ## Title screen logic
+- Load list for game
 - A title screen asking what you want to do:
     - Play
         - Choose how many words you want to practice, which creates a queue with those words
@@ -19,7 +20,6 @@
 
 ## NounList class
 - Create tests
-- Have populate from list function use a loop to make it work when changing csv format
 - Function to remove duplicates
 
 ## Noun class
@@ -28,11 +28,11 @@
 ## Bugs
 
 ## Finished
-- Graphic for terminal view, nice card
+- Graphic for terminal view, nice card, menu
 - Implement algorithm for choosing which card to show. Spaced repetition
 
 ## For Later
-- Sorting improvement: If we have the same noun with different articles, sort Der->Die->Das
+- Sorting improvement NounList: If we have the same noun with different articles, sort Der->Die->Das
 - Implement ability to have multiple decks
 
 ## Done since last commit
