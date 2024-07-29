@@ -1,19 +1,25 @@
 class Noun():
-    def __init__(self, noun, article=None, plural=None, translation=None):
+    def __init__(self, noun, article=None, plural=None, translation=None, date_last_correct=None, correct_streak = ''):
+
         self.article = article
         self.noun = noun
         self.plural = plural
         self.translation = translation
-        self.date_last_correct = ''
-        self.correct_streak = 0
+        self.date_last_correct = date_last_correct
+        if correct_streak == '':
+            self.correct_streak = 0
+        else:
+            self.correct_streak = int(correct_streak) 
     
     def __str__(self):
         if self.translation and self.plural and self.article:
             return f'{self.article} {self.noun}, Die {self.plural} ({self.translation})'
         elif self.plural and self.article:
             return f'{self.article} {self.noun}, Die {self.plural}'
-        else:
+        elif self.article:
             return f'{self.article} {self.noun}'
+        else:
+            return f'{self.noun} - Missing Information'
 
     def __repr__(self):
         return str(self)
@@ -42,6 +48,7 @@ class Noun():
     def get_translation_from_user(self):
         self.translation = input(f'What does {self.noun} mean?\n')
     
+    # TODO: Is this really needed?
     def to_csv_format(self) -> str:
         return f'{self.noun};{self.article};{self.plural};{self.translation};{self.date_last_correct};{self.correct_streak}'
     
