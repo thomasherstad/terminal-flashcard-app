@@ -15,7 +15,7 @@ def make_menu(header: str, menu_items: list) -> int:
         print(f'{number}. {item}')
         number += 1
     menu_choice = int(input())
-    return menu_choice - 1 #Returns list index
+    return menu_choice #Returns list index
 
 def main_menu() -> int:
     menu_options = ['Play', 'View List', 'Add Noun', 'Search List', 'Edit Noun', 'Close']
@@ -23,14 +23,14 @@ def main_menu() -> int:
     return choice
 
 def play_menu():
-    options = ['15 Nouns', 'Endless', 'Custom']
+    options = ['Standard (15 Nouns)', 'Endless', 'Custom']
     choice = make_menu('Game Menu', options)
     return choice
 
 def play(nouns: NounList):
     choice = play_menu()
     if choice == 1:
-        print('You have chosen 15 Nouns')
+        print('You have chosen Standard')
     elif choice == 2:
         print('You have chosen Endless')
     elif choice == 3:
@@ -40,7 +40,15 @@ def view_list(nouns: NounList):
     print(nouns)
 
 def add_noun_to_list(nouns: NounList):
-    pass
+    noun = Noun(input('Which noun do you want to add?\n').lower().capitalize())
+    noun.get_article_from_user()
+    noun.get_plural_from_user()
+    noun.get_translation_from_user()
+    if not nouns.in_list(noun):
+        nouns.add_noun(noun)
+        print(f'{noun} has been added to the list.')
+    else:
+        print(f'{noun} is already in the list. Nothing added.')
 
 def search_list(nouns: NounList):
     pass
@@ -49,7 +57,9 @@ def edit_noun(nouns: NounList):
     pass
 
 def close(nouns: NounList):
+    print('Saving changes...', end=' ')
     nouns.export_to_csv()
+    print('Changes saved')
 
 def main():
     deck = load_noun_list()
