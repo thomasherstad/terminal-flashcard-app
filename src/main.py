@@ -51,7 +51,16 @@ def add_noun_to_list(nouns: NounList):
         print(f'{noun} is already in the list. Nothing added.')
 
 def search_list(nouns: NounList):
-    pass
+    word = input('Which noun do you want to search for?\n').lower().capitalize()
+    results = nouns.search_word(word)
+    if results.noun_list == []:
+        print(f'"{word}" was not found in the list.')
+    elif len(results.noun_list) == 1:
+        print(f'1 match was found for "{word}":')
+        print(results)
+    else:
+        print(f'{len(results.noun_list)} matches were found for "{word}":')
+        print(results)
 
 def edit_noun(nouns: NounList):
     pass
