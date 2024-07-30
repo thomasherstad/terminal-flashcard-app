@@ -43,10 +43,10 @@ class Noun():
         self.article = articles[answer - 1]
 
     def get_plural_from_user(self):
-        self.plural = input(f'What is the plural of {self.noun}?\n')
+        self.plural = input(f'What is the plural of {self.noun}?\n').lower().capitalize()
 
     def get_translation_from_user(self):
-        self.translation = input(f'What does {self.noun} mean?\n')
+        self.translation = input(f'What does {self.noun} mean?\n').lower().capitalize()
     
     # TODO: Is this really needed?
     def to_csv_format(self) -> str:
