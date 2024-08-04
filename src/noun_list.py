@@ -2,8 +2,8 @@ from noun import Noun
 from db_csv_handler import read_csvfile_to_list, write_list_to_csvfile
 
 class NounList:
-    def __init__(self):
-        self.noun_list = []
+    def __init__(self, nouns = []):
+        self.noun_list = nouns
 
     def append_from_list(self, data: list):
         for item in data:

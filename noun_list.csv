@@ -1,12 +1,14 @@
-Noun;Article;Plural;Translation;Date Last Correct;Correct Streak
-Bahn;Die;Bahnen;Train;;0
-Baum;Der;Bäume;Tree;;0
-Email;Die;Emails;Email;;0
-Fehler;Der;Fehler;Mistake;;0
-Job;Der;Jobs;Job;;0
-Kraft;Die;Kräfte;Force;;0
-Moment;Der;Momente;Moment;;0
-Nachricht;Die;Nachrichten;News;;0
-See;Der;Seen;Lake;;0
-See;Die;Seen;Ocean;;0
-Team;Das;Teams;Team;;0
+Noun;Article;Plural;Translation;Status;Step;Ease;Next Review
+Bahn;Die;Bahnen;Train;;;;
+Baum;Der;Bäume;Tree;;;;
+Büro;Das;Büros;Office;;;;
+Email;Die;Emails;Email;;;;
+Fehler;Der;Fehler;Mistake;;;;
+Job;Der;Jobs;Job;;;;
+Kraft;Die;Kräfte;Force;;;;
+Moment;Der;Momente;Moment;;;;
+Nachricht;Die;Nachrichten;News;;;;
+See;Der;Seen;Lake;;;;
+See;Die;Seen;Ocean;;;;
+Team;Das;Teams;Team;;;;
+Unternehmen;Das;Unternehmen;Company;;;;

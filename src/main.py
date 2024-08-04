@@ -1,4 +1,5 @@
 import os
+import time
 
 from noun import Noun
 from noun_list import NounList
@@ -12,6 +13,11 @@ def load_noun_list() -> NounList:
     deck = NounList()
     deck.append_from_list(read_csvfile_to_list())
     return deck
+
+def save_noun_list(nouns: NounList):
+    print('Saving changes', end='')
+    nouns.export_to_csv()
+    print(' Changes saved')
 
 #TODO: Add fail safe for inputs outside of choices
 def make_menu(header: str, menu_options: list, back=False, back_label='Back') -> int:
@@ -75,6 +81,7 @@ def search_list(nouns: NounList) -> None:
     else:
         print(f'{len(results.noun_list)} matches were found for "{word}":')
         print(results)
+        
 
 def edit_noun(old_noun: Noun, nouns: NounList) -> NounList:
     new_noun = old_noun
@@ -98,7 +105,8 @@ def edit_noun(old_noun: Noun, nouns: NounList) -> NounList:
             print(new_noun)
             new_noun.get_translation_from_user()
     nouns.add_noun(new_noun)
-    clear_terminal()
+
+    save_noun_list()
     return nouns
 
 def choose_noun_to_edit(nouns: NounList) -> Noun:
@@ -116,11 +124,6 @@ def choose_noun_to_edit(nouns: NounList) -> Noun:
             noun = results[noun_choice]
         return noun
 
-
-def save(nouns: NounList):
-    print('Saving changes', end='')
-    nouns.export_to_csv()
-    print(' Changes saved')
 
 
 def main():
@@ -145,7 +148,7 @@ def main():
                 if options[ans] == 'No':
                     break
         elif choice == 5:
-            save(deck)
+            save_noun_list(deck)
             break
     clear_terminal()
 

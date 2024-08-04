@@ -1,14 +1,14 @@
 ## Focus
 - Getting all main menu functions working except play
-    - Add searching for another word and cancel
+    - Add searching for another word after search and cancel
     - Need to add a cancel to add noun
 
 ## Title screen logic
-- Load list for game
 - A title screen asking what you want to do:
     - Play
         - Choose how many words you want to practice, which creates a queue with those words
     - Add word
+        - Need to save the word to the csv
     - Print list of words
     - Search for word
     - Edit word
@@ -24,8 +24,6 @@
     - Show rear side
     - Keep score
     - Finish criteria: Until all cards have been finished twice
-- Endless mode
-- Custom mode
 
 ## Database csv 
 - Write tests for read and write
@@ -40,16 +38,19 @@
 - Implement time/date
 
 ## Bugs
-
+- Need to clean the screen before main menu. But then maybe add a sleep
+- Crash when you choose done before editing a word
 
 ## Finished
-- Graphic for terminal view, nice card, menu
 - Implement algorithm for choosing which card to show. Spaced repetition
+- Custom amount of Nouns mode
 
 ## For Later
 - Sorting improvement NounList: If we have the same noun with different articles, sort Der->Die->Das
 - Implement ability to have multiple decks
 - Apply filter to the list
 - Find out what to implement for spaced repetition
+- Play endless mode
+- Graphic for terminal view, nice card, menu
 
 ## Done since last commit

@@ -9,7 +9,10 @@ class Noun():
         if correct_streak == '':
             self.correct_streak = 0
         else:
-            self.correct_streak = int(correct_streak) 
+            self.correct_streak = int(correct_streak)
+        
+        self.card_front = f'... {self.noun} - ({self.translation})'
+        self.card_back = str(self)
     
     def __str__(self):
         if self.translation and self.plural and self.article:
