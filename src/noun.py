@@ -1,9 +1,9 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 TIME_STRING_FORMAT = '%y-%m-%d %H:%M:%S.%f'
 
 class Noun():
-    def __init__(self, noun, article=None, plural=None, translation=None, status=None, step=None, ease=None, next_review=datetime.now()):
+    def __init__(self, noun, article=None, plural=None, translation=None, status=None, step=None, ease=None, next_review=datetime.now(), interval=None):
 
         self.article = article
         self.noun = noun
@@ -11,11 +11,12 @@ class Noun():
         self.translation = translation
         self.status = status
         self.step = step
-        self.ease = ease
+        self.ease = max(ease, 1.3)
         self.next_review = self.convert_to_time(next_review)
         self.card_front = f'... {self.noun} - ({self.translation})'
         self.card_back = str(self)
         self.overdue = datetime.now() - self.next_review
+        self.interval = interval
     
     def convert_to_time(self, dt):
         if dt == '':
@@ -80,3 +81,63 @@ class Noun():
                 self.ease, 
                 self.next_review.strftime(TIME_STRING_FORMAT)]
     
+    def feedback(self, answer: str):
+        answer_options = ['again', 'hard', 'good', 'easy']
+        if self.status == 'learning':
+            if answer == answer_options[0]: #again
+                self.interval = timedelta(minutes=1)
+                self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[1]: #hard
+                self.interval = timedelta(minutes=6)
+                self.next_review = datetime.now() + self.interval
+                self.step = 1
+            elif answer == answer_options[2]: #good
+                if self.step == 0:
+                    self.interval = timedelta(minutes=10)
+                    self.next_review = datetime.now() + self.interval
+                    self.step = 1
+                elif self.step == 1:
+                    self.status = 'reviewing'
+                    self.interval = timedelta(days=1)
+                    self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[3]: #easy
+                self.status = 'reviewing'
+                self.interval = timedelta(days=4)
+                self.next_review = datetime.now() + self.interval
+
+        elif self.status == 'reviewing':
+            if answer == answer_options[0]: #again
+                self.status = 'relearning'
+                self.interval = timedelta(minutes=10)
+                self.next_review = datetime.now() + self.interval
+                self.ease -= 0.2
+            elif answer == answer_options[1]: #hard
+                self.status = 'reviewing'
+                self.interval *= 1.2
+                self.next_review = datetime.now() + self.interval
+                self.ease -= 0.15
+            elif answer == answer_options[2]: #good
+                self.status = 'reviewing'
+                self.interval *= self.ease
+                self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[3]: #easy
+                self.status = 'reviewing'
+                self.interval *= self.ease * 1.5
+                self.next_review = datetime.now() + self.interval
+                self.ease += 0.15
+
+        elif self.status == 'relearning':
+            if answer == answer_options[0]: #again
+                self.interval = timedelta(minutes=1)
+                self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[1]: #hard
+                self.interval = timedelta(minutes=6)
+                self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[2]: #good
+                self.status = 'reviewing'
+                self.interval = timedelta(days=1)
+                self.next_review = datetime.now() + self.interval
+            elif answer == answer_options[3]: #easy
+                self.status = 'reviewing'
+                self.interval = timedelta(days=4)
+                self.next_review = datetime.now() + self.interval

@@ -46,5 +46,4 @@
 - Graphic for terminal view, nice card, menu
 
 ## Done since last commit
-- Sort list on time in main before playing
-- Sort list on noun before printing to csv
+- 
