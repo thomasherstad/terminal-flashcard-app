@@ -1,5 +1,6 @@
 ## Focus
-- Implement datetime for nouns
+- Sort list on time in main before playing
+- Sort list on noun before printing to csv
     
 
 ## Title/Menus screen logic
@@ -25,7 +26,7 @@
 - Function to remove duplicates
 
 ## Noun class
-- Create a function that can sort on the datetime object
+-
 
 ## Bugs
 - Need to clean the screen before main menu. But then maybe add a sleep

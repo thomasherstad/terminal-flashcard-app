@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 from noun import Noun
 from db_csv_handler import read_csvfile_to_list, write_list_to_csvfile
 
@@ -34,6 +36,12 @@ class NounList:
     def sort(self):
         self.noun_list.sort()
 
+    def get_next_review(noun):
+        return noun.next_review
+
+    def sort_time(self):
+        self.noun_list.sort(key=lambda x: x.next_review)
+
     def add_noun(self, noun: Noun):
         if self.in_list(noun) != True:
             self.noun_list.append(noun)
@@ -56,12 +64,8 @@ if __name__ == '__main__':
     nouns.append_from_list(read_csvfile_to_list())
     nouns.sort()
     print(nouns)
-    noun = Noun('Bahn', 'Die', 'Bahne', 'Train')
-    print('---------------------------------')
-    nouns.remove_noun(noun)
-    print(nouns)
-    nouns.add_noun(noun)
-    nouns.add_noun(noun)
     print('---------------------------------')
     print(nouns)
-    nouns.export_to_csv()
+    print('---------------------------------')
+    nouns.sort_time()
+    print(nouns)

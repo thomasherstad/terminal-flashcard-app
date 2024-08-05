@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 TIME_STRING_FORMAT = '%y-%m-%d %H:%M:%S.%f'
 
@@ -12,13 +12,12 @@ class Noun():
         self.status = status
         self.step = step
         self.ease = ease
-        self.next_review = self.convert_time(next_review)
+        self.next_review = self.convert_to_time(next_review)
         self.card_front = f'... {self.noun} - ({self.translation})'
         self.card_back = str(self)
-        print(f'The noun {self.noun} has time type {type(self.next_review)} and time {self.next_review}')
-
+        self.overdue = datetime.now() - self.next_review
     
-    def convert_time(self, dt):
+    def convert_to_time(self, dt):
         if dt == '':
             return datetime.now()
         elif type(dt) == str:
@@ -81,5 +80,3 @@ class Noun():
                 self.ease, 
                 self.next_review.strftime(TIME_STRING_FORMAT)]
     
-    def create_time_from_string():
-        pass
