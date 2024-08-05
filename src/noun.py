@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 
+TIME_STRING_FORMAT = '%y-%m-%d %H:%M:%S.%f'
+
 class Noun():
     def __init__(self, noun, article=None, plural=None, translation=None, status=None, step=None, ease=None, next_review=datetime.now()):
 
@@ -9,12 +11,23 @@ class Noun():
         self.translation = translation
         self.status = status
         self.step = step
-        self.ease = ease 
-        self.next_review = next_review
+        self.ease = ease
+        self.next_review = self.convert_time(next_review)
         self.card_front = f'... {self.noun} - ({self.translation})'
         self.card_back = str(self)
+        print(f'The noun {self.noun} has time type {type(self.next_review)} and time {self.next_review}')
+
     
-    
+    def convert_time(self, dt):
+        if dt == '':
+            return datetime.now()
+        elif type(dt) == str:
+            return datetime.strptime(dt, TIME_STRING_FORMAT)
+        elif type(dt) == datetime:
+            return dt
+        else:
+            raise Exception(f'Time type error for {self.noun}')
+
     def __str__(self):
         if self.translation and self.plural and self.article:
             return f'{self.article} {self.noun}, Die {self.plural} ({self.translation})'
@@ -66,7 +79,7 @@ class Noun():
                 self.status, 
                 self.step, 
                 self.ease, 
-                str(self.next_review)]
+                self.next_review.strftime(TIME_STRING_FORMAT)]
     
     def create_time_from_string():
         pass

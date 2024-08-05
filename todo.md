@@ -1,8 +1,5 @@
 ## Focus
 - Implement datetime for nouns
-    - add a datetime.now() object to the noun constructor
-    - be able to export a string version of the datetime object to the csv
-    - be able to import a string version of the date/time and change to datetime object
     
 
 ## Title/Menus screen logic
