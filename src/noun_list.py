@@ -55,6 +55,7 @@ class NounList:
 
     def export_to_csv(self):
         data = []
+        self.sort()
         for noun in self.noun_list:
             data.append(noun.to_list_format())
         write_list_to_csvfile(data)
@@ -69,3 +70,4 @@ if __name__ == '__main__':
     print('---------------------------------')
     nouns.sort_time()
     print(nouns)
+    nouns.export_to_csv()

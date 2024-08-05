@@ -44,6 +44,7 @@ def play_menu():
     return choice
 
 def play(nouns: NounList):
+    nouns.sort_time()
     choice = play_menu()
     if choice == 1:
         print('You have chosen Standard')

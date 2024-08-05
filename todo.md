@@ -1,6 +1,5 @@
 ## Focus
-- Sort list on time in main before playing
-- Sort list on noun before printing to csv
+- 
     
 
 ## Title/Menus screen logic
@@ -21,19 +20,21 @@
 
 ## NounList class
 - Have populate_from_list function use a loop to make it work when changing csv format
-- Expand the sorting function to add the ability to sort on a different column
 - Create tests
 - Function to remove duplicates
 
 ## Noun class
--
+- Implement spaced repetition
+    - Status
+    - Steps
+    - Ease
+- Move it up and down in the steps/status
 
 ## Bugs
 - Need to clean the screen before main menu. But then maybe add a sleep
 - Crash when you choose done before editing a word
 
-## Finished
-- Implement algorithm for choosing which card to show. Spaced repetition
+## For a Finished App
 - Custom amount of Nouns mode
 
 ## For Later
@@ -45,3 +46,5 @@
 - Graphic for terminal view, nice card, menu
 
 ## Done since last commit
+- Sort list on time in main before playing
+- Sort list on noun before printing to csv
