@@ -5,7 +5,7 @@ from noun import Noun
 class TestNoun(unittest.TestCase):
     def test_to_list_format_new_noun(self):
         data = Noun('Kraft', 'Die', 'Kräfte', 'Force')
-        expected = ['Kraft', 'Die', 'Kräfte', 'Force', None, '0']
+        expected = ['Kraft', 'Die', 'Kräfte', 'Force', 0, 2.5, '24-08-05 18:08:33.688056']
         output = data.to_list_format()
         self.assertEqual(output, expected)
 

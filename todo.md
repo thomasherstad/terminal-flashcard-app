@@ -1,6 +1,5 @@
 ## Focus
-- 
-    
+- List tests are failing
 
 ## Title/Menus screen logic
 - Add searching for another word after search and cancel
@@ -24,11 +23,7 @@
 - Function to remove duplicates
 
 ## Noun class
-- Implement spaced repetition
-    - Status
-    - Steps
-    - Ease
-- Move it up and down in the steps/status
+- 
 
 ## Bugs
 - Need to clean the screen before main menu. But then maybe add a sleep

@@ -1,5 +1,3 @@
-from operator import itemgetter
-
 from noun import Noun
 from db_csv_handler import read_csvfile_to_list, write_list_to_csvfile
 

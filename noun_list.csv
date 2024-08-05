@@ -1,15 +1,15 @@
-Noun;Article;Plural;Translation;Status;Step;Ease;Next Review
-Bahn;Die;Bahnen;Train;;;;24-08-05 13:24:53.189435
-Baum;Der;Bäume;Tree;;;;24-08-05 13:24:53.189501
-Büro;Das;Büros;Office;;;;24-08-05 13:24:53.189527
-Email;Die;Emails;Email;;;;24-08-05 13:24:53.189552
-Fehler;Der;Fehler;Mistake;;;;24-08-05 13:24:53.189574
-Job;Der;Jobs;Job;;;;24-08-05 13:24:53.189589
-Kraft;Die;Kräfte;Force;;;;24-08-05 13:24:53.189603
-Logo;Das;Logos;Logo;;;;24-08-05 13:25:49.240709
-Moment;Der;Momente;Moment;;;;24-08-05 13:24:53.189643
-Nachricht;Die;Nachrichten;News;;;;24-08-05 13:24:53.189656
-See;Der;Seen;Lake;;;;24-08-05 13:24:53.189670
-See;Die;Seen;Ocean;;;;24-08-05 13:24:53.189683
-Team;Das;Teams;Team;;;;24-08-05 13:24:53.189695
-Unternehmen;Das;Unternehmen;Company;;;;24-08-05 13:24:53.189707
+Noun;Article;Plural;Translation;Status;Step;Ease;Next Review;Interval
+Bahn;Die;Bahnen;Train;learning;0;2.5;24-08-05 13:24:53.189435;1 day, 0:00:01
+Baum;Der;Bäume;Tree;learning;0;2.5;24-08-05 13:24:53.189501;1 day, 0:00:01
+Büro;Das;Büros;Office;learning;0;2.5;24-08-05 13:24:53.189527;1 day, 0:00:01
+Email;Die;Emails;Email;learning;0;2.5;24-08-05 13:24:53.189552;1 day, 0:00:01
+Fehler;Der;Fehler;Mistake;learning;0;2.5;24-08-05 13:24:53.189574;1 day, 0:00:01
+Job;Der;Jobs;Job;learning;0;2.5;24-08-05 13:24:53.189589;1 day, 0:00:01
+Kraft;Die;Kräfte;Force;learning;0;2.5;24-08-05 13:24:53.189603;1 day, 0:00:01
+Logo;Das;Logos;Logo;learning;0;2.5;24-08-05 13:25:49.240709;1 day, 0:00:01
+Moment;Der;Momente;Moment;learning;0;2.5;24-08-05 13:24:53.189643;1 day, 0:00:01
+Nachricht;Die;Nachrichten;News;learning;0;2.5;24-08-05 13:24:53.189656;1 day, 0:00:01
+See;Der;Seen;Lake;learning;0;2.5;24-08-05 13:24:53.189670;1 day, 0:00:01
+See;Die;Seen;Ocean;learning;0;2.5;24-08-05 13:24:53.189683;1 day, 0:00:01
+Team;Das;Teams;Team;learning;0;2.5;24-08-05 13:24:53.189695;1 day, 0:00:01
+Unternehmen;Das;Unternehmen;Company;learning;0;2.5;24-08-05 13:24:53.189707;1 day, 0:00:01

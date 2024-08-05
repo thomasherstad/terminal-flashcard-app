@@ -3,7 +3,7 @@ from pathlib import Path
 from noun import Noun
 
 PATH = Path(__file__).parent.parent.joinpath('noun_list.csv')
-CSV_HEADER = ['Noun', 'Article', 'Plural', 'Translation', 'Status', 'Step', 'Ease', 'Next Review']
+CSV_HEADER = ['Noun', 'Article', 'Plural', 'Translation', 'Status', 'Step', 'Ease', 'Next Review', 'Interval']
 
 #Obsolete?
 def list_to_noun(noun_list: list) -> Noun:

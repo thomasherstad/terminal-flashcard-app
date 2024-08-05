@@ -3,30 +3,20 @@ from datetime import datetime, timedelta
 TIME_STRING_FORMAT = '%y-%m-%d %H:%M:%S.%f'
 
 class Noun():
-    def __init__(self, noun, article=None, plural=None, translation=None, status=None, step=None, ease=None, next_review=datetime.now(), interval=None):
-
+    def __init__(self, noun, article=None, plural=None, translation=None, status='learning', step=0, ease=2.5, next_review=datetime.now(), interval=timedelta(seconds=0)):
         self.article = article
         self.noun = noun
         self.plural = plural
         self.translation = translation
         self.status = status
-        self.step = step
-        self.ease = max(ease, 1.3)
-        self.next_review = self.convert_to_time(next_review)
+        self.step = int(step)
+        self.ease = max(float(ease), 1.3)
+        self.next_review = self.convert_to_datetime(next_review)
         self.card_front = f'... {self.noun} - ({self.translation})'
         self.card_back = str(self)
         self.overdue = datetime.now() - self.next_review
-        self.interval = interval
-    
-    def convert_to_time(self, dt):
-        if dt == '':
-            return datetime.now()
-        elif type(dt) == str:
-            return datetime.strptime(dt, TIME_STRING_FORMAT)
-        elif type(dt) == datetime:
-            return dt
-        else:
-            raise Exception(f'Time type error for {self.noun}')
+        self.interval = self.convert_to_timedelta(interval)
+
 
     def __str__(self):
         if self.translation and self.plural and self.article:
@@ -50,6 +40,37 @@ class Noun():
     def __lt__(self, other):
         return self.noun < other.noun
 
+    def convert_to_datetime(self, dt):
+        if dt == '':
+            return datetime.now()
+        elif type(dt) == str:
+            return datetime.strptime(dt, TIME_STRING_FORMAT)
+        elif type(dt) == datetime:
+            return dt
+        else:
+            raise Exception(f'Time type error for {self.noun}')
+        
+    # Format: 1 day, 0:00:01
+    def convert_to_timedelta(self, interval):
+        if interval == '':
+            return timedelta(seconds=0)
+        elif interval[2:5] == 'day' or interval[3:7] == 'days':
+            days = int(interval.split(' ')[0])
+            time = interval.split(', ')
+            hours, minutes, seconds = time[1].split(':')
+            hours = int(hours)
+            minutes = int(minutes)
+            seconds = int(seconds)
+            return timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
+        else:
+            time = interval.split(', ')
+            hours, minutes, seconds = time[1].split(':')
+            hours = int(hours)
+            minutes = int(minutes)
+            seconds = int(seconds)
+            return timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
+        
+
     def get_article_from_user(self):
         articles = ['Der', 'Die', 'Das']
         while True:
@@ -72,14 +93,7 @@ class Noun():
     
     #TODO: There is probably a way to override something so I can use list(noun)
     def to_list_format(self) -> list:
-        return [self.noun, 
-                self.article,
-                self.plural,
-                self.translation, 
-                self.status, 
-                self.step, 
-                self.ease, 
-                self.next_review.strftime(TIME_STRING_FORMAT)]
+        return [self.noun, self.article, self.plural, self.translation, self.status, self.step, self.ease, self.next_review.strftime(TIME_STRING_FORMAT), self.interval]
     
     def feedback(self, answer: str):
         answer_options = ['again', 'hard', 'good', 'easy']
