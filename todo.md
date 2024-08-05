@@ -1,19 +1,13 @@
 ## Focus
-- Getting all main menu functions working except play
-    - Add searching for another word after search and cancel
-    - Need to add a cancel to add noun
+- Implement datetime for nouns
+    - add a datetime.now() object to the noun constructor
+    - be able to export a string version of the datetime object to the csv
+    - be able to import a string version of the date/time and change to datetime object
+    
 
-## Title screen logic
-- A title screen asking what you want to do:
-    - Play
-        - Choose how many words you want to practice, which creates a queue with those words
-    - Add word
-        - Need to save the word to the csv
-    - Print list of words
-    - Search for word
-    - Edit word
-        - Also delete
-    - Close program
+## Title/Menus screen logic
+- Add searching for another word after search and cancel
+- Need to add a cancel to add noun
 
 ## Play function
 - Standard mode
@@ -22,8 +16,7 @@
     - Give options for article
     - Give options for plural
     - Show rear side
-    - Keep score
-    - Finish criteria: Until all cards have been finished twice
+    - Need to re-sort on the datetime object
 
 ## Database csv 
 - Write tests for read and write
@@ -35,7 +28,7 @@
 - Function to remove duplicates
 
 ## Noun class
-- Implement time/date
+- Create a function that can sort on the datetime object
 
 ## Bugs
 - Need to clean the screen before main menu. But then maybe add a sleep

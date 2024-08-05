@@ -7,7 +7,7 @@ class NounList:
 
     def append_from_list(self, data: list):
         for item in data:
-            noun = Noun(item[0], item[1], item[2], item[3])
+            noun = Noun(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7])
             self.noun_list.append(noun)
 
     def __repr__(self):

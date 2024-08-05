@@ -1,18 +1,19 @@
+from datetime import datetime, timedelta
+
 class Noun():
-    def __init__(self, noun, article=None, plural=None, translation=None, date_last_correct=None, correct_streak = ''):
+    def __init__(self, noun, article=None, plural=None, translation=None, status=None, step=None, ease=None, next_review=datetime.now()):
 
         self.article = article
         self.noun = noun
         self.plural = plural
         self.translation = translation
-        self.date_last_correct = date_last_correct
-        if correct_streak == '':
-            self.correct_streak = 0
-        else:
-            self.correct_streak = int(correct_streak)
-        
+        self.status = status
+        self.step = step
+        self.ease = ease 
+        self.next_review = next_review
         self.card_front = f'... {self.noun} - ({self.translation})'
         self.card_back = str(self)
+    
     
     def __str__(self):
         if self.translation and self.plural and self.article:
@@ -53,8 +54,19 @@ class Noun():
     
     # TODO: Is this really needed?
     def to_csv_format(self) -> str:
-        return f'{self.noun};{self.article};{self.plural};{self.translation};{self.date_last_correct};{self.correct_streak}'
+        return f'{self.noun};{self.article};{self.plural};{self.translation};{self.status};{self.step};{self.ease};{self.next_review}'
+                
     
     #TODO: There is probably a way to override something so I can use list(noun)
     def to_list_format(self) -> list:
-        return [self.noun, self.article, self.plural, self.translation, self.date_last_correct, str(self.correct_streak)]
+        return [self.noun, 
+                self.article,
+                self.plural,
+                self.translation, 
+                self.status, 
+                self.step, 
+                self.ease, 
+                str(self.next_review)]
+    
+    def create_time_from_string():
+        pass

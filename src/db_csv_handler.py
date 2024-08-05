@@ -3,14 +3,15 @@ from pathlib import Path
 from noun import Noun
 
 PATH = Path(__file__).parent.parent.joinpath('noun_list.csv')
-CSV_HEADER = ['Noun', 'Article', 'Plural', 'Translation', 'Date Last Correct', 'Correct Streak']
+CSV_HEADER = ['Noun', 'Article', 'Plural', 'Translation', 'Status', 'Step', 'Ease', 'Next Review']
 
+#Obsolete?
 def list_to_noun(noun_list: list) -> Noun:
     noun = Noun(noun_list[0])
     noun.article = noun_list[1]
     noun.plural = noun_list[2]
     noun.translation = noun_list[3]
-    noun.date_last_correct = noun_list[4]
+    noun.next_review = noun_list[4]
     noun.correct_streak = noun_list[5]
     return noun
 
