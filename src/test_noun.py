@@ -1,5 +1,5 @@
 import unittest
-
+from datetime import timedelta
 from noun import Noun
 
 class TestNoun(unittest.TestCase):
@@ -80,3 +80,27 @@ class TestNoun(unittest.TestCase):
 
     # test get_article_from_user (might need rewrite to make testable)
     
+
+    def test_convert_to_timedelta_no_days(self):
+        noun = Noun('Kraft', 'Die', interval='0:10:00')
+        output = noun.interval 
+        expected = timedelta(hours=0, minutes=10, seconds=0)
+        self.assertEqual(output, expected)
+
+    def test_convert_to_timedelta_only_days(self):
+        noun = Noun('Kraft', 'Die', interval='4 days, 0:00:00')
+        output = noun.interval 
+        expected = timedelta(days=4, hours=0, minutes=0, seconds=0)
+        self.assertEqual(output, expected)
+    
+    def test_convert_to_timedelta_many_days(self):
+        noun = Noun('Kraft', 'Die', interval='44 days, 0:00:00')
+        output = noun.interval 
+        expected = timedelta(days=44, hours=0, minutes=0, seconds=0)
+        self.assertEqual(output, expected)    
+    
+    def test_convert_to_timedelta_all(self):
+        noun = Noun('Kraft', 'Die', interval='4 days, 6:12:45')
+        output = noun.interval 
+        expected = timedelta(days=4, hours=6, minutes=12, seconds=45)
+        self.assertEqual(output, expected)

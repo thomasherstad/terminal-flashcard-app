@@ -66,12 +66,11 @@ class Noun():
             seconds = int(seconds)
             return timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
         else:
-            time = interval.split(', ')
-            hours, minutes, seconds = time[1].split(':')
+            hours, minutes, seconds = interval.split(':')
             hours = int(hours)
             minutes = int(minutes)
             seconds = int(seconds)
-            return timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
+            return timedelta(hours=hours, minutes=minutes, seconds=seconds)
         
     def update_is_due(self):
         self.is_due = datetime.now() > self.next_review

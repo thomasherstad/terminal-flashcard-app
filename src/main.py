@@ -41,6 +41,8 @@ def play(nouns: NounList):
             nouns.update_is_due_nouns()
             nouns = play_top_noun(nouns)
             nouns.sort_time()
+            clear_terminal()
+        print('No nouns due')
     return nouns
 
 def view_list(nouns: NounList) -> None:
