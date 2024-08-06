@@ -104,3 +104,5 @@ class TestNoun(unittest.TestCase):
         output = noun.interval 
         expected = timedelta(days=4, hours=6, minutes=12, seconds=45)
         self.assertEqual(output, expected)
+
+    #Test Noun datetime in the same way

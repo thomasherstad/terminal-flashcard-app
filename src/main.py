@@ -41,6 +41,9 @@ def play(nouns: NounList):
             nouns.update_is_due_nouns()
             nouns = play_top_noun(nouns)
             nouns.sort_time()
+            c = input('Continue?')
+            if c == '0':
+                return nouns
             clear_terminal()
         print('No nouns due')
     return nouns
