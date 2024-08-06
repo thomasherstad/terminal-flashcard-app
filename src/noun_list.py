@@ -40,6 +40,10 @@ class NounList:
     def sort_time(self):
         self.noun_list.sort(key=lambda x: x.next_review)
 
+    def update_is_due_nouns(self):
+        for noun in self.noun_list:
+            noun.update_is_due()
+
     def add_noun(self, noun: Noun):
         if self.in_list(noun) != True:
             self.noun_list.append(noun)

@@ -4,6 +4,8 @@ import time
 from noun import Noun
 from noun_list import NounList
 from db_csv_handler import read_csvfile_to_list,  write_list_to_csvfile
+from play import play_top_noun
+from menu import make_menu
 
 #TODO: Add windows/linux/mac support depending on os
 def clear_terminal():
@@ -19,19 +21,6 @@ def save_noun_list(nouns: NounList):
     nouns.export_to_csv()
     print(' Changes saved')
 
-#TODO: Add fail safe for inputs outside of choices
-def make_menu(header: str, menu_options: list, back=False, back_label='Back') -> int:
-    #Returns list index
-    number = 1
-    print(header)
-    for item in menu_options:
-        print(f'{number}. {item}')
-        number += 1
-    if back == True:
-        print(f'0. {back_label}')
-    menu_choice = int(input())
-    clear_terminal()
-    return menu_choice - 1
 
 def main_menu() -> int:
     menu_options = ['Play', 'View List', 'Add Noun', 'Search List', 'Edit Noun', 'Save & Close']
@@ -39,19 +28,20 @@ def main_menu() -> int:
     return choice
 
 def play_menu():
-    options = ['Standard (15 Nouns)', 'Endless', 'Custom']
+    options = ['All Due Nouns']
     choice = make_menu('Game Menu', options)
     return choice
 
 def play(nouns: NounList):
     nouns.sort_time()
     choice = play_menu()
-    if choice == 1:
-        print('You have chosen Standard')
-    elif choice == 2:
-        print('You have chosen Endless')
-    elif choice == 3:
-        print('You have chosen Custom')
+    if choice == 0:
+        print('You have chosen All Due Nouns')
+        while nouns.noun_list[0].is_due:
+            nouns.update_is_due_nouns()
+            nouns = play_top_noun(nouns)
+            nouns.sort_time()
+    return nouns
 
 def view_list(nouns: NounList) -> None:
     print(nouns)
@@ -133,7 +123,7 @@ def main():
     while True:
         choice = main_menu()
         if choice == 0:
-            play(deck)
+            deck = play(deck)
         elif choice == 1:
             view_list(deck)
         elif choice == 2: 

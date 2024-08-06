@@ -12,10 +12,11 @@ class Noun():
         self.step = int(step)
         self.ease = max(float(ease), 1.3)
         self.next_review = self.convert_to_datetime(next_review)
-        self.card_front = f'... {self.noun} - ({self.translation})'
-        self.card_back = str(self)
         self.overdue = datetime.now() - self.next_review
         self.interval = self.convert_to_timedelta(interval)
+        self.is_due = datetime.now() > self.next_review
+        self.card_front = f'... {self.noun} - ({self.translation})'
+        self.card_back = str(self)
 
 
     def __str__(self):
@@ -72,6 +73,8 @@ class Noun():
             seconds = int(seconds)
             return timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
         
+    def update_is_due(self):
+        self.is_due = datetime.now() > self.next_review
 
     def get_article_from_user(self):
         articles = ['Der', 'Die', 'Das']
@@ -161,5 +164,4 @@ class Noun():
 
 if __name__ == '__main__':
     print('Main is noun.py')
-    noun = Noun('Arbeit')
-    print(noun.interval)
+    noun =  Noun('Arbeit', 'Die')

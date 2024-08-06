@@ -1,18 +1,20 @@
 ## Focus
-- List tests are failing
+- Search function is failing
+- Noun.py list tests are failing
 
 ## Title/Menus screen logic
 - Add searching for another word after search and cancel
 - Need to add a cancel to add noun
 
 ## Play function
-- Standard mode
-    - Pull out the 15 top nouns
-    - Show front side
-    - Give options for article
-    - Give options for plural
-    - Show rear side
-    - Need to re-sort on the datetime object
+- Standard play mode (all due nouns)
+    - Game screen:
+        - Show front side
+        - Give options for article
+        - Show rear side
+        - Give options for again, hard, good, easy
+    - Need to re-sort on the datetime object at some point during the game
+- Play due + X amount of learning
 
 ## Database csv 
 - Write tests for read and write
@@ -23,22 +25,22 @@
 - Function to remove duplicates
 
 ## Noun class
-- 
+- Fix tests
 
 ## Bugs
 - Need to clean the screen before main menu. But then maybe add a sleep
 - Crash when you choose done before editing a word
 
 ## For a Finished App
-- Custom amount of Nouns mode
+- Being able to play 15 nouns, custom amount or all cards
+- Check how many cards are due
+
 
 ## For Later
-- Sorting improvement NounList: If we have the same noun with different articles, sort Der->Die->Das
 - Implement ability to have multiple decks
-- Apply filter to the list
-- Find out what to implement for spaced repetition
-- Play endless mode
+- Create a scraper that automatically fills in noun info
 - Graphic for terminal view, nice card, menu
+- Have tests for every used function
 
 ## Done since last commit
 - 
