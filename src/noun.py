@@ -54,6 +54,8 @@ class Noun():
     def convert_to_timedelta(self, interval):
         if interval == '':
             return timedelta(seconds=0)
+        elif type(interval) == timedelta:
+            return interval
         elif interval[2:5] == 'day' or interval[3:7] == 'days':
             days = int(interval.split(' ')[0])
             time = interval.split(', ')
@@ -155,3 +157,9 @@ class Noun():
                 self.status = 'reviewing'
                 self.interval = timedelta(days=4)
                 self.next_review = datetime.now() + self.interval
+
+
+if __name__ == '__main__':
+    print('Main is noun.py')
+    noun = Noun('Arbeit')
+    print(noun.interval)
