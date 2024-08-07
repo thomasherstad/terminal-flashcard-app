@@ -1,19 +1,14 @@
 ## Focus
 - Search function is failing
 - Noun.py list tests are failing
+- Raise an error in make menu when a wrong input is given
+- Add ability in make_menu to be tabular instead of line-by-line
 
 ## Title/Menus screen logic
 - Add searching for another word after search and cancel
 - Need to add a cancel to add noun
 
 ## Play function
-- Standard play mode (all due nouns)
-    - Game screen:
-        - Show front side
-        - Give options for article
-        - Show rear side
-        - Give options for again, hard, good, easy
-    - Need to re-sort on the datetime object at some point during the game
 - Play due + X amount of learning
 
 ## Database csv 
@@ -32,7 +27,7 @@
 - Crash when you choose done before editing a word
 
 ## For a Finished App
-- Being able to play 15 nouns, custom amount or all cards
+- Being able to play 15 nouns, custom amount or all due cards
 - Check how many cards are due
 
 
@@ -40,7 +35,9 @@
 - Implement ability to have multiple decks
 - Create a scraper that automatically fills in noun info
 - Graphic for terminal view, nice card, menu
+- Decide on a maximum amount of new learning cards to have in the play list at any one time
 - Have tests for every used function
 
 ## Done since last commit
-- 
+- Fixed search function
+- Added some tests to noun_list search function

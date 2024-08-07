@@ -17,13 +17,22 @@ class NounList:
             if item != self.noun_list[-1]:
                 result += '\n'
         return result
+    
+    def __eq__(self, other):
+        if self.noun_list == other.noun_list:
+            return True 
+        return False
+
 
     def search_word(self, word: str): # Returns a NounList
         word = word.lower().capitalize()
-        matches = NounList()
+        matches = NounList([])
+        print(f'Matches before function: {matches.noun_list}')
         for noun in self.noun_list:
             if noun.noun == word:
-                matches.noun_list.append(noun)
+                print(f'{word} and {noun.noun} == {word == noun.noun}')
+                matches.add_noun(noun)
+        print(f'Returning: {matches.noun_list}')
         return matches
 
     def in_list(self, noun: Noun) -> bool:
