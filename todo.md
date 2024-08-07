@@ -1,5 +1,4 @@
 ## Focus
-- Search function is failing
 - Noun.py list tests are failing
 - Raise an error in make menu when a wrong input is given
 - Add ability in make_menu to be tabular instead of line-by-line
@@ -39,5 +38,3 @@
 - Have tests for every used function
 
 ## Done since last commit
-- Fixed search function
-- Added some tests to noun_list search function

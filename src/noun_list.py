@@ -27,12 +27,9 @@ class NounList:
     def search_word(self, word: str): # Returns a NounList
         word = word.lower().capitalize()
         matches = NounList([])
-        print(f'Matches before function: {matches.noun_list}')
         for noun in self.noun_list:
             if noun.noun == word:
-                print(f'{word} and {noun.noun} == {word == noun.noun}')
                 matches.add_noun(noun)
-        print(f'Returning: {matches.noun_list}')
         return matches
 
     def in_list(self, noun: Noun) -> bool:
