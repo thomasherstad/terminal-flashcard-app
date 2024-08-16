@@ -1,11 +1,10 @@
 ## Focus
 - Raise an error in make menu when a wrong input is given
-- Add a limit to how many learning cards are added to play. 15 maybe
 
 ## Title/Menus screen logic
 - Add searching for another word after search and cancel
 - Need to add a cancel to add noun
-
+- Add a limit to how many learning cards are added to play. 15 maybe
 
 ## Database csv 
 - Write tests for read and write
