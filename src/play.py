@@ -16,7 +16,7 @@ def play_noun(noun: Noun) -> str:
     else:
         print('Wrong!')
     print(noun.card_back)
-    feedback_choice = make_menu('How difficult was it?', feedback_options, back=True, back_label='Cancel')
+    feedback_choice = make_menu('How difficult was it?', feedback_options, back=True, back_label='Cancel', horizontal=True)
     if feedback_choice == -1:
         return None
     return feedback_options[feedback_choice]

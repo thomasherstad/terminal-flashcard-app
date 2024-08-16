@@ -45,7 +45,7 @@ def play(nouns: NounList):
             if c == '0':
                 return nouns
             clear_terminal()
-        print('No nouns due')
+        print(f'No nouns due, next due {nouns.noun_list[0].next_review}')
     return nouns
 
 def view_list(nouns: NounList) -> None:

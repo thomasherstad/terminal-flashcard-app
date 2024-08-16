@@ -1,16 +1,26 @@
 Noun;Article;Plural;Translation;Status;Step;Ease;Next Review;Interval
-Arbeit;Die;Arbeiten;Work;learning;1;2.5;24-08-06 22:25:08.797006;0:10:00
-Bahn;Die;Bahnen;Train;learning;1;2.5;24-08-06 22:23:29.172053;0:10:00
-Baum;Der;Bäume;Tree;learning;1;2.5;24-08-06 22:23:35.229752;0:10:00
+Arbeit;Die;Arbeiten;Work;reviewing;1;2.5;24-08-08 15:58:16.750819;1 day, 0:00:00
+Arm;Der;Arme;Arm;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Bahn;Die;Bahnen;Train;reviewing;1;2.5;24-08-08 15:57:22.874146;1 day, 0:00:00
+Baum;Der;Bäume;Tree;reviewing;1;2.5;24-08-08 15:57:42.596036;1 day, 0:00:00
+Bein;Das;Beine;Leg;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
 Büro;Das;Büros;Office;reviewing;0;2.5;24-08-10 22:13:39.581675;4 days, 0:00:00
-Email;Die;Emails;Email;learning;1;2.5;24-08-06 22:23:43.572787;0:10:00
-Fehler;Der;Fehler;Mistake;learning;1;2.5;24-08-06 23:24:12.205252;0:01:00
-Job;Der;Jobs;Job;learning;1;2.5;24-08-06 22:24:25.550818;0:10:00
+Email;Die;Emails;Email;reviewing;1;2.5;24-08-08 15:57:49.251187;1 day, 0:00:00
+Fehler;Der;Fehler;Mistake;reviewing;1;2.5;24-08-08 15:59:14.962183;1 day, 0:00:00
+Feld;Das;Felder;Field;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Hose;Die;Hosen;Trousers;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Job;Der;Jobs;Job;reviewing;1;2.5;24-08-08 15:57:58.295403;1 day, 0:00:00
+Klo;Das;Klos;Toilet;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
 Kraft;Die;Kräfte;Force;reviewing;0;2.5;24-08-10 22:14:27.839011;4 days, 0:00:00
-Logo;Das;Logos;Logo;learning;1;2.5;24-08-06 22:25:03.173753;0:10:00
-Moment;Der;Momente;Moment;learning;1;2.5;24-08-06 22:25:12.746098;0:10:00
-Nachricht;Die;Nachrichten;News;learning;1;2.5;24-08-06 22:25:17.037427;0:10:00
-See;Der;Seen;Lake;learning;1;2.5;24-08-06 22:24:35.716671;0:10:00
-See;Die;Seen;Ocean;learning;1;2.5;24-08-06 23:29:38.240449;0:06:00
+Licht;Das;Lichter;Light;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Logo;Das;Logos;Logo;reviewing;1;2.5;24-08-08 15:58:10.602670;1 day, 0:00:00
+Moment;Der;Momente;Moment;reviewing;1;2.5;24-08-08 15:58:27.242029;1 day, 0:00:00
+Nachricht;Die;Nachrichten;News;reviewing;1;2.5;24-08-08 15:58:37.288349;1 day, 0:00:00
+See;Der;Seen;Lake;reviewing;1;2.5;24-08-08 15:58:04.782535;1 day, 0:00:00
+See;Die;Seen;Ocean;reviewing;1;2.5;24-08-08 22:58:36.347845;1 day, 0:00:00
+Stuhl;Der;Stühle;Chair;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
 Team;Das;Teams;Team;reviewing;0;2.5;24-08-10 22:14:59.417624;4 days, 0:00:00
-Unternehmen;Das;Unternehmen;Company;learning;1;2.5;24-08-06 22:25:23.296610;0:10:00
+Tisch;Der;Tische;Table;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Tor;Das;Tore;Goal/gate;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Tür;Die;Türen;Door;learning;0;2.5;24-08-07 23:07:42.514843;0:00:00
+Unternehmen;Das;Unternehmen;Company;reviewing;1;2.5;24-08-08 15:59:03.844644;1 day, 0:00:00
